@@ -18,16 +18,20 @@ public class Endereco {
 
     @Column(nullable = false)
     private String logradouro;
-    @Column(nullable = false)
+
     private Integer numero;
 
     private String complemento;
+
     @Column(nullable = false)
     private String bairro;
+
     @Column(nullable = false)
     private String cidade;
+
     @Column(nullable = false)
     private String uf;
+
     @Column(nullable = false)
     private Long cep;
 
