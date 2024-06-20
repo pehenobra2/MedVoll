@@ -1,32 +1,19 @@
 package med.voll.api.Model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "medico")
 @Getter
 @Setter
-public class Medico {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Medico extends Pessoa{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String nome;
-
-    @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private Long telefone;
-
-    @Column(nullable = false)
     private String crm;
 
-    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
