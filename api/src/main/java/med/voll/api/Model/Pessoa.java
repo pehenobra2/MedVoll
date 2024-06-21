@@ -1,6 +1,7 @@
 package med.voll.api.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Pessoa {
 
     private String nome;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String email;
 
     private String telefone;
