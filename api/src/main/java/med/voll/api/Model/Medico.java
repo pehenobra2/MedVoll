@@ -16,7 +16,4 @@ public class Medico extends Pessoa{
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
 }

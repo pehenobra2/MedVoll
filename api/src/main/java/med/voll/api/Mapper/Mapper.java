@@ -45,7 +45,10 @@ public class Mapper {
         medico.setTelefone(medicoDTO.telefone());
         medico.setCrm(medicoDTO.crm());
         medico.setEspecialidade(medicoDTO.especialidade());
-        medico.setEndereco(toEnderecoEntity(medicoDTO.endereco()));
+
+        Endereco endereco = toEnderecoEntity(medicoDTO.endereco());
+        medico.setEndereco(endereco);
+
         return medico;
     }
 
