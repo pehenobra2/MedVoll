@@ -28,7 +28,7 @@ public class MedicoController {
     @Transactional
     public ResponseEntity<String> cadastroMedico(@RequestBody @Valid MedicoDTO medicoDTO) {
         Medico medico = service.cadastroMedico(medicoDTO);
-        return new ResponseEntity<>("Médico cadastrado com sucesso", HttpStatus.CREATED);
+        return new ResponseEntity<>("Médico cadastrado com sucesso!", HttpStatus.CREATED);
     }
 
     @GetMapping
