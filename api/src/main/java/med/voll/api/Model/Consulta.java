@@ -30,6 +30,4 @@ public class Consulta {
 
     private LocalDateTime dataHora;
 
-
-
 }

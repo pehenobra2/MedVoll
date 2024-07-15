@@ -8,14 +8,14 @@ import med.voll.api.Model.Especialidade;
 import java.time.LocalDateTime;
 
 public record ConsultaDTO(
-        @NotBlank
+
         String crmMedico,
         @NotBlank
         String cpfPaciente,
         @NotNull
         @Future
         LocalDateTime data,
-        Especialidade especialidade
 
-) {
+        Especialidade especialidade
+        ) {
 }
