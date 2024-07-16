@@ -1,12 +1,10 @@
-create table consulta(
+CREATE TABLE consulta (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    medico_crm VARCHAR(255) NOT NULL,
+    paciente_cpf VARCHAR(255) NOT NULL,
+    data DATETIME NOT NULL,
 
-    id bigint not null auto_increment,
-    medico_crm bigint not null,
-    paciente_cpf bigint not null,
-    data datetime not null,
-
-    primary key(id),
-    constraint fk_consultas_medico_crm foreign key(medico_crm) references medicos(crm),
-    constraint fk_consultas_paciente_cpf foreign key(paciente_cpf) references pacientes(cpf)
-
+    PRIMARY KEY (id),
+    CONSTRAINT fk_consultas_medico_crm FOREIGN KEY (medico_crm) REFERENCES medicos(crm),
+    CONSTRAINT fk_consultas_paciente_cpf FOREIGN KEY (paciente_cpf) REFERENCES pacientes(cpf)
 );
