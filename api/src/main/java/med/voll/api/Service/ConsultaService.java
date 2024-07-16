@@ -9,6 +9,7 @@ import med.voll.api.Model.Medico;
 import med.voll.api.Repository.ConsultaRepository;
 import med.voll.api.Repository.MedicoRepository;
 import med.voll.api.Repository.PacienteRepository;
+import med.voll.api.Validations.ConsultaValidations;
 import org.apache.el.ValueExpressionLiteral;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,8 @@ public class ConsultaService {
     @Autowired
     MedicoRepository medicoRepository;
 
+    ConsultaValidations consultaValidations;
+
     public void agendar(ConsultaDTO consultaDTO){
 
         var paciente = pacienteRepository.findByCpf(consultaDTO.cpfPaciente()).get();
@@ -39,7 +42,12 @@ public class ConsultaService {
         if(consultaDTO.crmMedico() != null && medico == null){
             throw new ValidacaoException("Médico não existe");
         }
+
+        consultaValidations.ValidarHorarioClinica(consultaDTO);
+
         Consulta consulta = new Consulta(null, medico, paciente, consultaDTO.data());
+
+
 
         consultaRepository.save(consulta);
 
